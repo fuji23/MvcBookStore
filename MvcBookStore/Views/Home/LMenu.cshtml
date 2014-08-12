@@ -1,0 +1,14 @@
+﻿@model IEnumerable<string>
+
+<div>Genres </div>
+<div id="menu">
+    @foreach (var item in Model)
+    {
+        <p>
+            @Html.ActionLink(item, "Store", "Home", new { id = item }, new { @class = "action-button shadow animate green" })
+        </p>
+    }
+    <p>
+        @Html.ActionLink("All books", "Store", "Home", new { id = "All" }, new { @class = "action-button shadow animate blue" })
+    </p>
+</div>

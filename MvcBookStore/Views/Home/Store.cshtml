@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MvcBookStore.Models.Book>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Store page";
+}
+
+<title>@ViewBag.Title</title>
+
+@Html.Grid(Model).Columns(columns =>
+           {
+
+               columns.Add(false).Encoded(false).Sanitized(false).RenderValueAs(c =>
+                                String.Format("<img id='faceimg' src='/Content/pic/{0}.jpg'/>", c.BookID));
+               columns.Add(false).Encoded(false).Sanitized(false).RenderValueAs(c =>
+                                                @Html.ActionLink("Details", "Details", "Books", new { id = c.BookID }, null));
+               columns.Add(foo => foo.Title).Titled("Book title").SetWidth("10%");
+               columns.Add(foo => foo.Price).SetWidth("10%").Sortable(true);
+           }).WithPaging(2)
+
+

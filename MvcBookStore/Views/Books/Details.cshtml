@@ -1,0 +1,56 @@
+﻿@model MvcBookStore.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<h3>@Model.Title</h3>
+
+<table id="bookinfo" class="container-fluid table table-bordered">
+    <tr class="warning">
+        <th class="col-md-8">Picture</th>
+        <th>Info</th>
+    </tr>
+    <tr>
+        <td><img class="img-circle" src="@Url.Content(String.Format("~/Content/pic/{0}.jpg", Model.BookID))" /></td>
+        <td>
+            <table class="table table-striped">
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Title) </td>
+                    <td>@Html.DisplayFor(model => model.Title)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.ISBN)
+                    </td>
+                    <td>@Html.DisplayFor(model => model.ISBN)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Publisher)
+                    </td>
+                    <td>@Html.DisplayFor(model => model.Publisher)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Genre)
+                    </td>
+                    <td>@Html.DisplayFor(model => model.Genre)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.Price)
+                    </td>
+                    <td>@Html.DisplayFor(model => model.Price)
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

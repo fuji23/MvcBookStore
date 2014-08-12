@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MvcBookStore.Models.Book>
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img id="faceimg" src="@String.Format("/Content/pic/{0}.jpg", item.BookID)" alt="@item.Title" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+        </tr>
+    }
+</table>
